@@ -22,6 +22,9 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
+
+
+
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
@@ -39,6 +42,38 @@ app.get('/messages', async (req, res) => {
     })
   }
 })
+
+const router = express.Router();
+// router.get('/AboutUs', async (req, res) => {
+//   try {
+  
+//   res.json({
+//     imageUrl: "https://raw.githubusercontent.com/zitongyu756/photo/refs/heads/main/WechatIMG634.jpg",
+//     status: 'all good',
+// });
+
+//   } catch (err) {
+//     console.error(err);
+//     res.status(400).json({
+//       error: err,
+//       status: 'failed to retrieve About Us data',
+//     });
+//   }
+// });
+router.get('/aboutus', (req, res) => {
+  try {
+    res.json({
+      imageUrl: "https://raw.githubusercontent.com/zitongyu756/photo/refs/heads/main/WechatIMG634.jpg", 
+      status: 'all good',
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve About Us data',
+    });
+  }
+});
 
 // a route to handle fetching a single message by its id
 app.get('/messages/:messageId', async (req, res) => {
